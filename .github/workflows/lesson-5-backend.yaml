@@ -11,11 +11,17 @@ jobs:
     defaults:
       run:
         working-directory: backend
-    name: Execute the Pycharm security test
+    name: Execute the PyCharm security test
     steps:
-      - name: PyCharm Python Security Scanner
+      - uses: actions/checkout@v4
+      - name: Disable Debug
+        run: |
+          sed -i 's/DEBUG = True/DEBUG = False/g' hangry_api/hangry_api/settings.py
+      - name: Run PyCharm Security
         uses: tonybaloney/pycharm-security@1.25.1
-
+        with:
+          fail_on_warnings: 'yes'
+          
   build_and_test:
     needs: [security_test]
     runs-on: ubuntu-latest
