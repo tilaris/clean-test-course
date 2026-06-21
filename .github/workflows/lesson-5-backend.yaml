@@ -20,6 +20,7 @@ jobs:
         uses: tonybaloney/pycharm-security@master
         with:
           fail_on_warnings: 'yes'
+          
   build_and_test:
     needs: [security_test]
     runs-on: ubuntu-latest
