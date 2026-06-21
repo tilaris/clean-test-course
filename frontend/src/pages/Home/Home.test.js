@@ -3,7 +3,7 @@ import { API_URL } from '../../utils/constants';
 import axios from 'axios';
 import Home from '.';
 
-describe('Test Home', () => {
+describe('Test Home JF', () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
